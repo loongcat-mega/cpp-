@@ -36,3 +36,32 @@ auto foo=[&x]{x++;};
 ```
 
 
+```cpp
+int a=10;  
+auto p= [=](){};  
+cout<<sizeof p<<endl;  //1
+return 0;
+```
+展开后：
+```cpp
+class __lambda_9_12
+{
+public: 
+inline void operator()() const
+{
+}
+
+// inline /*constexpr */ __lambda_9_12(__lambda_9_12 &&) noexcept = default;
+
+};
+```
+如果捕获列表的值未被lambda表达式使用，则不会成为类成员
+
+![image.png](https://yaaame-1317851743.cos.ap-beijing.myqcloud.com/20240429104809.png)
+
+如果变量是const而非volatile 的整形或枚举型，并且已经用常量表达式初始化，或者是constexpr且没有mutable成员，则不需要捕获
+
+
+![image.png](https://yaaame-1317851743.cos.ap-beijing.myqcloud.com/20240429105107.png)
+
+![image.png](https://yaaame-1317851743.cos.ap-beijing.myqcloud.com/20240429105316.png)
