@@ -210,8 +210,8 @@ class 封装的本质，在于**将数据和行为，绑定在一起然后通过
 下面这段代码有错误：
 ```cpp
 #include <iostream>
- #include <string.h> 
- using namespace std;
+#include <string.h> 
+using namespace std;
 class A
 {
 public: 
@@ -536,11 +536,27 @@ void (Node::*sh)()=&Node::show;
 (n1.*sh)();
 ```
 
+## 友元
+
+只能出现在类定义中，因为友元不是授权类的成员，所以它不受其所在类的声明区域public private 和protect的影响
+
+友元关系不能被继承，且不具有传递性
+
+## 重载
+
+![image.png](https://yaaame-1317851743.cos.ap-beijing.myqcloud.com/20240511223904.png)
+
+重载运算符的运算中至少有一个操作数是自定义类
+
+
 
 
 # 继承
 
+类的继承，是新的类从已有类那里得到已有的特性
 父类的私有属性会被继承并且占有空间
+
+
 
 
 # 多态
